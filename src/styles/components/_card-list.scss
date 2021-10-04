@@ -1,0 +1,277 @@
+
+
+#search-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    label {
+        font-size: 2rem;
+    }
+    input {
+        width: 30%;
+        font-size: 2rem;
+        padding: 0.8rem;
+        border-radius: 10px;
+        border: 1px solid $color-1;
+        outline: none;
+        &:focus {
+            box-shadow: 1px 1px 1px 1px #fbab6198;
+        }
+    }
+}
+
+.continent-checkbox-list {
+    width: 84%;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    label {
+        margin: 4.8rem 0;
+        font-size: 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        input {
+            margin-left: 1.6rem;
+            width: 2.4rem;
+            height: 2.4rem;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            -o-appearance: none;
+            appearance: none;
+            border: 1px solid #fbab61;
+            border-radius: 4px;
+            outline: none;
+            transition-duration: 0.2s;
+            background-color: #fff;
+            cursor: pointer;
+            position: relative;
+            &:checked {
+                background-color: #fbab61;
+                color: #fff;
+                &:before {
+                    content: '\2713';
+                    font-size: 2rem;
+                    display: block;
+                    text-align: center;
+                    color: #fff;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                }
+
+            }
+        }
+    }
+}
+
+.countries-list-page {
+    p {
+        display: none;
+    }
+}
+
+.countries-list {
+    margin: 0 auto;
+    width: 87%;
+    height: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 300px);
+    grid-gap: 10px;
+    justify-content: center;
+
+    .card {
+        /*width: 16%;*/
+        max-height: auto;
+        position: relative;
+        cursor: pointer;
+        border: 1px solid transparent;
+        border-radius: 5px;
+        overflow: hidden;
+        transition: transform 0.2s ease;
+        &:hover {
+            transform: scale(1.2);
+            z-index: 10;
+            .card-img {
+                filter: brightness(30%);
+            }
+            .card-content {
+                color: #fff;
+                z-index: 10;
+                ul {
+                    opacity: 1;
+                    height: 85%;
+                }
+            }
+        }
+        .card-img {
+            width: 300px;
+            height: 200px;
+            transition: filter 0.2s ease;
+            img {
+                object-fit: cover;
+                width: 100%;
+                height: 100%;
+            }
+        }
+        
+        .card-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.4s ease;
+            ul {
+                width : 85%;
+                height : 0%;
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-around;
+                opacity: 0;
+                transition: all 0.2s ease;
+                li {
+                    color: #fff;
+                    z-index: 10;
+                    &:first-child {
+                        text-transform: uppercase;
+                        color: $color-1;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/*==================*/
+/*media-queries*/
+/*TABLETS & I-PHONES*/
+
+@media screen and(max-width: 1100px) {
+    #search-form {
+        input {
+            width: 45%;
+        }
+    }
+
+    .continent-checkbox-list {
+        width: 90%;
+        flex-wrap: wrap;
+        margin-top: 1.6rem;
+        margin-bottom: 1.6rem;
+        label {
+            margin: 1.6rem 0.8rem;
+            font-size: 1.6rem;
+        }
+    }
+}
+
+@media screen and(max-width: 700px) {
+    .countries-list-page {
+        #search-form {
+            input {
+                width: 60%;
+                margin-bottom: 4rem;
+            }
+        }
+        #arrow {
+            position: sticky;
+            width: 10%;
+            top: 23%;
+            left: 5%;
+            cursor: pointer;
+            color: $color-1;
+        }
+        p {
+            display: block;
+            position: absolute;
+            top: 5%;
+            right: 3.2rem;
+            font-size: 2.8rem;
+            cursor: pointer;
+            z-index: 100;
+            color: $color-1;
+        }
+    }
+    .continent-checkbox-list {
+        position: absolute;
+        z-index: 99;
+        top: 10%;
+        right: -100%;
+        margin: 0;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        height: 52vh;
+        width: 50vw;
+        border-radius: 40px;
+        background-color: #fff;
+        transition: right 0.3s ease;
+        label {
+            flex-direction: column;
+            margin: 0.8rem 0;
+            text-align: center;
+            padding: 0.4rem;
+        }
+    }
+}
+
+.appear {
+    right: 0;
+}
+
+@media screen and(max-width: 480px) {
+    .countries-list-page {
+        #arrow {
+            font-size: 2.4rem;
+        }
+        p {
+            font-size: 1.6rem
+        }
+    }
+
+    .continent-checkbox-list {
+        width: 60vw;
+    }
+
+    #search-form {
+        label {
+            font-size: 1.6rem;
+        }
+    }
+
+    .continent-checkbox-list {
+        label {
+            font-size: 1.4rem;
+        }
+    }
+
+    .countries-list {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .card {
+            .card-content {
+                ul {
+                    li {
+                        font-size: 1.4rem;
+                    }
+                }
+            }
+            margin: 0 auto;
+            .card-img {
+                width: 200px;
+                height: 130px;
+            }
+            font-size: 1.6rem;
+        }
+    }
+}
