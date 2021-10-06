@@ -1,16 +1,17 @@
 //Permettre la navigation
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { HashRouter as Router } from 'react-router-dom'
 import Home from "./pages/Home";
 import CountryDetails from "./pages/CountryDetails";
 
 const App = () => {
   return (
-    <BrowserRouter>
+    <Router>
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route path="/country/:country" component={CountryDetails} />
+        <Route exact path="/country/:country" component={CountryDetails} />
       </Switch>
-    </BrowserRouter>
+    </Router>
   );
 }
 
