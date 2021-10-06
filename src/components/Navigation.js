@@ -5,7 +5,7 @@ const Navigation = () => {
     
     return (
         <div className="navigation">
-            <NavLink exact to="/" activeClassName="nav-active">
+            <NavLink to="/" activeClassName="nav-active">
                 Accueil
             </NavLink>
         </div>
